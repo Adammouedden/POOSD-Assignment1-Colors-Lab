@@ -1,0 +1,41 @@
+@startuml
+start
+
+:Open index.html;
+:Enter login and password;
+:Click Login button;
+
+:Frontend sends JSON request\nto Login.php;
+:Login.php queries Users table;
+
+if (Credentials valid?) then (yes)
+  :Return userId and user info;
+  :Store userId in frontend;
+  :Navigate to color.html;
+
+  while (User continues using app?)
+    if (Choose Search?) then (yes)
+      :Enter search text;
+      :Send JSON request to SearchColors.php;
+      :SearchColors.php queries Colors\nwhere UserID matches and Name matches;
+      :Return matching colors;
+      :Display results on color.html;
+    else (no)
+      :Enter new color name;
+      :Send JSON request to AddColor.php;
+      :AddColor.php inserts row into Colors;
+      :Return success/failure;
+      :Refresh displayed color list;
+    endif
+  endwhile (no)
+
+  :Log out / leave page;
+  stop
+
+else (no)
+  :Return login error;
+  :Display "invalid login/password";
+  stop
+endif
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor User
+
+rectangle "Colors Web Application" {
+  usecase "Log In" as UC_Login
+  usecase "Search Colors" as UC_Search
+  usecase "Add Color" as UC_Add
+  usecase "View Search Results" as UC_View
+  usecase "Maintain Session\n(userId on color page)" as UC_Session
+}
+
+User --> UC_Login
+User --> UC_Search
+User --> UC_Add
+
+UC_Login .> UC_Session : <<include>>
+UC_Search .> UC_View : <<include>>
+UC_Add .> UC_View : <<extend>>
+
+@enduml

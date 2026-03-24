@@ -1,0 +1,88 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class IndexPage {
+  +login: String
+  +password: String
+  +doLogin()
+}
+
+class ColorPage {
+  +userId: int
+  +searchText: String
+  +colorName: String
+  +searchColors()
+  +addColor()
+  +displayResults()
+}
+
+class CodeJS {
+  +doLogin()
+  +searchColor()
+  +addColor()
+  +sendRequest(url, jsonPayload)
+  +storeUserContext()
+}
+
+class LoginAPI {
+  +login(login: String, password: String): JSON
+  -connectDB()
+  -findUser(login: String, password: String)
+  -returnResult()
+}
+
+class SearchColorsAPI {
+  +searchColors(userId: int, search: String): JSON
+  -connectDB()
+  -queryColors(userId: int, search: String)
+  -returnResult()
+}
+
+class AddColorAPI {
+  +addColor(userId: int, color: String): JSON
+  -connectDB()
+  -insertColor(userId: int, color: String)
+  -returnResult()
+}
+
+class DatabaseConnection {
+  +host: String
+  +username: String
+  +password: String
+  +database: String
+  +open()
+  +close()
+}
+
+class User {
+  +ID: int
+  +FirstName: String
+  +LastName: String
+  +Login: String
+  +Password: String
+}
+
+class Color {
+  +ID: int
+  +Name: String
+  +UserID: int
+}
+
+IndexPage --> CodeJS : uses
+ColorPage --> CodeJS : uses
+
+CodeJS --> LoginAPI : calls
+CodeJS --> SearchColorsAPI : calls
+CodeJS --> AddColorAPI : calls
+
+LoginAPI --> DatabaseConnection : uses
+SearchColorsAPI --> DatabaseConnection : uses
+AddColorAPI --> DatabaseConnection : uses
+
+LoginAPI --> User : queries
+SearchColorsAPI --> Color : reads
+AddColorAPI --> Color : creates
+
+User "1" --> "0..*" Color : owns
+
+@enduml

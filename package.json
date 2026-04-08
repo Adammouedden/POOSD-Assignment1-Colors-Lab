@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab/issues"
   },
-  "homepage": "https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab#readme"
+  "homepage": "https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab#readme",
+  "devDependencies": {
+    "eslint": "^10.2.0"
+  }
 }

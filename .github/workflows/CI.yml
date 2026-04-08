@@ -1,4 +1,4 @@
-name: JavaScript Linting
+name: Linting CI
 on: [push, pull_request]
 
 jobs:
@@ -11,12 +11,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22  # Matches v22.17.1
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
-        # npm ci is highly recommended for CI/CD
-        run: npm ci
+        run: npm install
 
-      - name: Run ESLint
+      # 1. Lint JavaScript (using your ESLint v10)
+      - name: Lint JavaScript
         run: npm run lint
+
+      # 2. Lint HTML
+      - name: Lint HTML
+        run: npx htmlhint "**/*.html"
+
+      # 3. Lint CSS
+      - name: Lint CSS
+        run: npx stylelint "**/*.css"

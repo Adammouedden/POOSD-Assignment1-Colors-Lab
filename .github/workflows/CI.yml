@@ -19,7 +19,7 @@ jobs:
 
       # 1. Lint JavaScript (using your ESLint v10)
       - name: Lint JavaScript
-        run: npm run lint
+        run: npx eslint .
 
       # 2. Lint HTML
       - name: Lint HTML

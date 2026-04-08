@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "eslint": "^10.2.0",
     "htmlhint": "^1.9.2",
     "stylelint": "^17.6.0",

@@ -1,0 +1,25 @@
+{
+  "name": "poosd-assignment1-colors-lab",
+  "version": "1.0.0",
+  "description": "COLORS is a full-stack web application built using a LAMP stack (Linux, Apache, MySQL, PHP) hosted on DigitalOcean.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab/issues"
+  },
+  "homepage": "https://github.com/Adammouedden/POOSD-Assignment1-Colors-Lab#readme"
+}

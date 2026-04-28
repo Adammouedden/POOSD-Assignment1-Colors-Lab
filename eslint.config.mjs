@@ -29,5 +29,13 @@ export default [
             "semi": "off",
             "no-unused-vars": "off"
         }
+    },
+    {
+        files: ["tests/**/*.js"],
+        languageOptions: {
+            globals: {
+                ...globals.jest,
+            }
+        }
     }
 ];
